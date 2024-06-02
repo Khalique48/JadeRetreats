@@ -17,21 +17,21 @@ const SwiperMobile: FC<SwiperMobileProps> = ({
   setCurrentIndex,
 }) => {
   const increaseProgress = () => {
-    console.log(currentIndex);
     if (currentIndex < images_length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setCurrentIndex(1);
+      setCurrentIndex(0);
     }
+    console.log(currentIndex);
   };
 
   const decreaseProgress = () => {
-    console.log(currentIndex);
     if (currentIndex > 1) {
       setCurrentIndex(currentIndex - 1);
     } else {
       setCurrentIndex(images_length - 1);
     }
+    console.log(currentIndex);
   };
 
   return (
@@ -43,7 +43,8 @@ const SwiperMobile: FC<SwiperMobileProps> = ({
         >
           <ChevronLeftIcon className="w-6 h-6" />
         </button>
-        <div className="relative w-10 md:w-20 h-1 rounded-xl bg-gray-600">
+        <div className="relative w-20 h-1 rounded-xl bg-gray-600">
+          {" "}
           <div
             className="absolute h-full bg-yellow-600"
             style={{

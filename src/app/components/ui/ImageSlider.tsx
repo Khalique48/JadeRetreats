@@ -72,7 +72,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const [visibleImages, setVisibleImages] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(3);
   const [currentIndexMobile, setCurrentIndexMobile] = useState(0);
-
+  const [isMobileView, setIsMobileView] = useState(false);
   useEffect(() => {
     const updateVisibleImages = () => {
       if (window.innerWidth >= 1024) {
@@ -81,6 +81,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
         setVisibleImages(3);
       } else {
         setVisibleImages(1);
+        setIsMobileView(true);
       }
     };
 
@@ -105,24 +106,47 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
         />
       </div>
 
-      <div className="flex overflow-hidden space-x-4">
-        {images
-          .slice(currentIndex - visibleImages + 1, currentIndex + 1)
-          .map((image, index) => (
-            <div key={index} className="relative md:w-1/4">
-              <img
-                src={image.url}
-                alt={image.text}
-                className="w-full object-cover"
-              />
-              <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center opacity-100  transition duration-300">
-                <div className="text-4xl font-bold">{image.text}</div>
-                <a href="#" className="mt-2 text-sm underline">
-                  View More
-                </a>
+      <div className="flex overflow-hidden space-x-4 transition-transform duration-300 ease-in-out">
+        {!isMobileView &&
+          images
+            .slice(currentIndex - visibleImages + 1, currentIndex + 1)
+            .map((image, index) => (
+              <div key={index} className="relative md:w-1/4">
+                <img
+                  src={image.url}
+                  alt={image.text}
+                  className="w-full object-cover transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center opacity-100 transition-opacity duration-300">
+                  <div className="text-4xl font-bold">{image.text}</div>
+                  <a href="#" className="mt-2 text-sm underline">
+                    View More
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        {isMobileView &&
+          images
+            .slice(
+              currentIndexMobile - visibleImages + 1,
+              currentIndexMobile + 1
+            )
+            .map((image, index) => (
+              <div key={index} className="relative md:w-1/4">
+                <img
+                  src={image.url}
+                  alt={image.text}
+                  className="w-full object-cover transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center opacity-100 transition-opacity duration-300">
+                  {" "}
+                  <div className="text-4xl font-bold">{image.text}</div>
+                  <a href="#" className="mt-2 text-sm underline">
+                    View More
+                  </a>
+                </div>
+              </div>
+            ))}
       </div>
       <SwiperMobile
         currentIndex={currentIndexMobile}
