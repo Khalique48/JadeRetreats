@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
             <p className="text-sm text-[#889C9C] tracking-wide text-left px-10">
               Welcome to Jade Retreats, a bunch of hidden gems located at the
               most upbeat locations around Bangalore and Goa. As soon as you
-              arrive, you'll be surrounded by lush greenery and breathtaking
+              arrive, you&apos;ll be surrounded by lush greenery and breathtaking
               views that will transport you to a peaceful state of mind.
             </p>
             <a href="http://jadehospitainment.com/book-now/" className="mt-4">
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             <ul className="text-[#889C9C] text-sm space-y-2">
               <li>Brochure</li>
               <li>Blog</li>
-              <li>People's Experiences</li>
+              <li>People&apos;s Experiences</li>
               <li>Get In Touch</li>
             </ul>
           </div>
