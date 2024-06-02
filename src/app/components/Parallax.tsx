@@ -35,17 +35,32 @@ export function HeroParallax() {
   ]
   return (
     <div className="w-full">
-      {cards.map((card) => (<CardHolder key={card.brand} bgUrl={card.bgUrl} brand={card.brand} logoUrl={card.logoUrl} event={card.event} stay={card.stay}/>))}
+      {cards.map((card) => (
+        <CardHolder
+          key={card.brand}
+          bgUrl={card.bgUrl}
+          brand={card.brand}
+          logoUrl={card.logoUrl}
+          event={card.event}
+          stay={card.stay}
+        />
+      ))}
       <div className="flex flex-col items-left items-start bg-black text-white top-5 py-10">
         <p className="text-3xl text-left px-0">
-          Goa's Uncharted Wonders: Explore places untouched by the tides.
+          Goa&apos;s Uncharted Wonders: Explore places untouched by the tides.
         </p>
         <h2 className="text-3xl text-borderColor items-left justify-left mt-4 mb-4">
           Click more to know about the chorao Islands.
         </h2>
       </div>
-      <CardHolder bgUrl="https://jadehospitainment.com/wp-content/uploads/slider/cache/231e8c8bd618ca5c0ad0882144dc91df/13-2.jpg" brand="
-      Mae Terra" logoUrl={'/MaeTerra.png'} stay={14} event={30}/>
+      <CardHolder
+        bgUrl="https://jadehospitainment.com/wp-content/uploads/slider/cache/231e8c8bd618ca5c0ad0882144dc91df/13-2.jpg"
+        brand="
+      Mae Terra"
+        logoUrl={"/MaeTerra.png"}
+        stay={14}
+        event={30}
+      />
       {/* Repeat this structure for other images */}
     </div>
   );
